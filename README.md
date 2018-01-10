@@ -1,9 +1,3 @@
-# AngularJS module for Kaazing AMQP 0.9.1 Gateway
-
-## Online demo
-
-Open [http://achmadns.github.io/kaazing-amqp-angular](http://achmadns.github.io/kaazing-amqp-angular).
-
 ## Trying locally
 
 Make sure you have these tools before trying out:
@@ -18,9 +12,6 @@ The demo use cloud-hosted Kaazing AMQP WebSocket gateway: `wss://sandbox.kaazin
 Open `app/index.html` in your browser, e.g.:
 
  `file:///kaazing-amqp-angular/app/index.html`
-
-![Kaazing AMQP Angular Demo Screenshot](/kaazing-amqp-angular.png "Kaazing AMQP Angular Demo")
-
 
 ### NOTE:
 
