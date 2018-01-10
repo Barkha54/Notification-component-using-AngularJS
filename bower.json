@@ -1,17 +1,18 @@
 {
-    "name": "kaazing-amqp-angular",
-    "description": "Kaazing AMPQ 0.9.1 Angular Module",
+    "name": "notification-angular",
+    "description": "Angular Notification Module",
     "version": "0.1.0",
     "homepage": "https://github.com/achmadns/kaazing-amqp-angular",
     "license": "MIT",
     "authors": [
-        "Achmad Nasirudin Sandi <achmadnsandi@gmail.com> (http://achmad.in)"
+        "Barkha Jain <barkhajain54@gmail.com> (http://achmad.in)"
     ],
     "repository": {
       "type": "git",
       "url": "git://github.com/foo/bar.git"
       },
       "dependencies": {
+        "angular":"1.5.6",
         "bootstrap": "^3.x",
         "angular-bootstrap":"0.11.2",
         "angular-smart-table": "1.4.12",

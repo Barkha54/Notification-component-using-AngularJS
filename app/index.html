@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- Required for IE6/IE7 cross-origin support -->
     <meta name="kaazing:postMessageBridgeURL" content="PostMessageBridge.html">
-    <title>Demo of AngularJS module for Kaazing AMQP 0.9.1</title>
+    <title>Demo of Notification component using AngularJS</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css.map">
@@ -19,38 +19,51 @@
     <script src="lib/angular-smart-table/dist/smart-table.js"></script>
 </head>
 <body ng-controller="home">
-<h2>Kaazing AMPQ 0.9.1 Angular Module Demo</h2>
-
-<form id="person-input" role="form" ng-submit="send()">
-    <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" class="form-control" id="name" name="name" ng-model="person.name"/>
-    </div>
-    <div class="form-group">
-        <label for="age">Age:</label>
-        <input type="text" class="form-control" id="age" name="age" ng-model="person.age"/>
-    </div>
-    <button id="send-person" type="submit" class="btn btn-primary">Send</button>
-</form>
-<label>Person count: {{displayedCollection.length}}</label>
+<button class="notification" ng-click="toggleCustom()">toggle<span class="bubble" ng-if="count">{{count}}</span></button>
+<div ng-show="toggle">
+<div class="date">{{dateToDisplay}}</div>
+<div class="notification_div"><span class="task_color">{{assigned_tasks}} </span>Assigned tasks</div>
+<div class="notification_div"><span class="task_color">{{reminders}} </span>Reminders</div>
+<div class="notification_div"><span class="task_color">{{notifications}} </span>Notifications</div>
+<div  class="workspace"><span>My Workspace ></span></div>
 
 <div id="table-wrapper">
     <div id="table-scroll">
-        <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped" id="person-table">
+        <table st-table="displayedCollection" st-safe-src="rowCollection" class="table" id="person-table">
             <thead>
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-            </tr>
+            <!-- <tr>
+                {{row.date}}
+            </tr> -->
             </thead>
-            <tbody>
-            <tr ng-repeat="row in displayedCollection">
-                <td>{{row.name}}</td>
-                <td>{{row.age}}</td>
+            <tbody class="table_body">
+            <tr ng-repeat="row in displayedCollection" style="position: relative;" >
+                <td class="timing">{{row.date}}</td>
+                <td style="display: inline-block;">{{row.message}}</td>
+                <!-- <td>{{row.category}}</td> -->
+                <td><span id='close' ng-click='removeRow($index)'>x</span></td>
             </tr>
             </tbody>
         </table>
     </div>
+</div>
+</div>
+<form id="person-input" role="form" ng-submit="send()">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" ng-model="person.message"/>
+    </div>
+    <div class="form-group">
+        <label for="type">Type:</label>
+        <!-- <input type="text" class="form-control" id="age" name="age" ng-model="person.age"/> -->
+    <select ng-model="person.category" required>
+        <option value="">--Select--</option>
+        <option value="Assigned tasks">Assigned tasks</option>
+        <option value="Reminders">Reminders</option>
+        <option value="Notifications">Notifications</option>
+    </select>
+    </div>
+    <button id="send-person" type="submit" class="btn btn-primary" ng-click="prettyDate(dateForFormat)">Send</button>
+</form>
 </div>
 <script src="amqp.js"></script>
 <script src="main.js"></script>

@@ -1,7 +1,7 @@
 {
   "name": "angular-tryout",
   "version": "0.1.0",
-  "repository": "https://github.com/achmadns/kaazing-amqp-angular",
+  "repository": "https://github.com/Barkha54/Notification-component-using-AngularJS",
   "scripts": {
     "prestart": "npm install",
     "postinstall": "bower install",
